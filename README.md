@@ -1,4 +1,4 @@
-# koi-prd-skill-suite
+# Koi-Prd-Skill-Suite
 
 <div align="center">
 
