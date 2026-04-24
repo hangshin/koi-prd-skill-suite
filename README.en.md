@@ -1,4 +1,4 @@
-# Koi PRD Skills
+# Koi-Prd-Skill-Suite
 
 <div align="center">
 
