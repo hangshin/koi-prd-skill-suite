@@ -41,20 +41,39 @@ Koi PRD Skills is a comprehensive skill suite designed for **Trae SOLO** that au
 ```
 Requirement Input
   ↓
-1. PRD Generation & Validation
-   ├── koi-prd-pipeline (Orchestrator)
-   │   ├── koi-prd-generator → Generate/Fix PRD
-   │   └── koi-prd-checker → Validate PRD
+1. PRD Generation & Validation (Multi-round Iteration)
+   └── koi-prd-pipeline (Orchestrator)
+       ├── koi-prd-generator → Generate PRD Draft
+       │       ↓
+       └── koi-prd-checker → Validate PRD Compliance
+               ↓ (Not compliant)
+               └── Feed back corrections to koi-prd-generator
+                       ↓ (Multi-round loop until compliant)
+       └── Generate user stories with proper granularity
   ↓
 2. PRD Conversion
    └── koi-prd-convert-to-json → Convert to JSON
   ↓
 3. Story Execution
-   ├── koi-prd-story-loop (Orchestrator)
-   │   └── koi-prd-story-executor → Execute Individual Story
+   └── koi-prd-story-loop (Orchestrator)
+       └── koi-prd-story-executor → Execute Individual Story
   ↓
 Code Output
 ```
+
+**Multi-round Iteration Mechanism for PRD Generation & Validation**:
+
+`koi-prd-pipeline` serves as the orchestrator, coordinating `koi-prd-generator` and `koi-prd-checker` through multiple rounds of interaction:
+
+1. **Generation Phase**: `koi-prd-generator` creates a PRD draft based on requirements, including user stories, acceptance criteria, dependencies, etc.
+2. **Validation Phase**: `koi-prd-checker` inspects PRD compliance, including:
+   - Whether user stories are granular enough (can be completed within a single context window)
+   - Whether acceptance criteria are verifiable (not vague descriptions)
+   - Whether dependencies are clearly marked
+   - Whether story types are correctly categorized
+3. **Iterative Correction**: If requirements are not met, `koi-prd-checker` outputs specific correction feedback, and `koi-prd-generator` revises the PRD accordingly
+4. **Loop Until Compliance**: Repeat the generation-validation cycle until user stories meeting specifications with appropriate granularity are produced
+
 
 ### Skills Suite
 
