@@ -8,7 +8,7 @@
 [![Trae SOLO](https://img.shields.io/badge/Platform-Trae%20SOLO-orange.svg)](https://trae.cn)
 [![PRD Automation](https://img.shields.io/badge/PRD-Automation-green.svg)]()
 
-[English](README.zh.md) | [中文](README.md)
+[English](README.en.md) | [中文](README.md)
 
 </div>
 
